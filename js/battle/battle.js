@@ -15,12 +15,14 @@ document.addEventListener('click', (e) =>{ //e for event
             if(computerDeck[i].id === cardId){
                 computerSelect[0] = computerDeck[i]
                 computerDamage = findHighestAttack(computerSelect[0])
+                computerPower.innerText = `Card Number ${i+1} Selected!`
             }
         }
     }
     if(cardClass.length <= 1){
         playerSelect.pop()
         computerSelect.pop()
+        playerPower.innerText = null
         playerPower.innerText = null
     }
     if(computerSelect.length === 1 && playerSelect.length ===1 && resultOutcome === false){
