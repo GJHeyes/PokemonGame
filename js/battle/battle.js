@@ -1,7 +1,7 @@
 document.addEventListener('click', (e) =>{ //e for event
     let cardId = e.target.parentNode.id
     let cardClass = e.target.parentNode.classList
-    if(cardClass[1] === "human" && computerSelect.length === 0) {
+    if(cardClass[1] === "human") {
         for(let i = 0; i < playerDeck.length; i++){
             if(playerDeck[i].id === cardId){
                 playerSelect[0] = playerDeck[i]
@@ -10,17 +10,22 @@ document.addEventListener('click', (e) =>{ //e for event
             }
         }
     }
-    if(cardClass[1] === "cpu" && computerSelect.length === 0 && playerSelect.length !=0) {
+    if(cardClass[1] === "cpu") {
         for(let i = 0; i < computerDeck.length; i++){
             if(computerDeck[i].id === cardId){
                 computerSelect[0] = computerDeck[i]
+                computerDamage = findHighestAttack(computerSelect[0])
             }
         }
     }
+    if(cardClass.length <= 1){
+      
+        playerSelect.pop()
+        computerSelect.pop()
+        playerPower.innerText = null
+    }
     if(computerSelect.length === 1 && playerSelect.length ===1 && resultOutcome === false){
-        computerDamage = findHighestAttack(computerSelect[0])
-        
-    
+        isFlipped()
         if(computerDamage > playerDamage){
             computerScore++
             result.innerText = `Lost by ${computerDamage-playerDamage} Damage!`
@@ -42,7 +47,6 @@ document.addEventListener('click', (e) =>{ //e for event
         playerDeck = playerDeck.filter((i) => i.id !== playerSelect[0].id)
         computerDeck = computerDeck.filter((i) => i.id !== computerSelect[0].id)
           
-        
         resultOutcome = true
         playScore.innerText= playerScore
         compScore.innerText= computerScore
