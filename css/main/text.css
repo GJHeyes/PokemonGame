@@ -1,15 +1,13 @@
 #result{
     font-family: 'Pokemon Solid', sans-serif;
     align-self: center;
-    transition: transform 1s;
+    transition: all 3s linear;
     color: #f6bd20;
     letter-spacing: 10px;
-    
 }
 
 .power{
     font-family: 'Pokemon Solid', sans-serif;
-    transition: transform 1s;
     font-size: 3vw;
     letter-spacing: 10px;
     align-self: center;
@@ -55,7 +53,7 @@
 }
 
 .enlarge{
-    font-size: 5vw;
+    font-size: 3vw;
 }
 
 .small{
@@ -63,6 +61,7 @@
 }
 
 .visuallyShow{
+    transition: all 0s linear;
     opacity: 100;
 }
 
