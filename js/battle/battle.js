@@ -23,7 +23,7 @@ document.addEventListener('click', (e) =>{ //e for event
         playerSelect.pop()
         computerSelect.pop()
         playerPower.innerText = null
-        playerPower.innerText = null
+        computerPower.innerText = null
     }
     if(computerSelect.length === 1 && playerSelect.length ===1 && resultOutcome === false){
 
