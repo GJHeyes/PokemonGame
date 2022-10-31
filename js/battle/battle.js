@@ -19,13 +19,21 @@ document.addEventListener('click', (e) =>{ //e for event
         }
     }
     if(cardClass.length <= 1){
-      
         playerSelect.pop()
         computerSelect.pop()
         playerPower.innerText = null
     }
     if(computerSelect.length === 1 && playerSelect.length ===1 && resultOutcome === false){
+        
+        resultOutcome = true
         isFlipped()
+        playerDeck = playerDeck.filter((i) => i.id !== playerSelect[0].id)
+        computerDeck = computerDeck.filter((i) => i.id !== computerSelect[0].id)
+        computerPower.innerText = `${computerDamage} Max Damage`
+        playScore.innerText= playerScore
+        compScore.innerText= computerScore
+        updateScore()
+
         if(computerDamage > playerDamage){
             computerScore++
             result.innerText = `Lost by ${computerDamage-playerDamage} Damage!`
@@ -42,16 +50,6 @@ document.addEventListener('click', (e) =>{ //e for event
         });
         result.classList = "enlarge"
 
-        computerPower.innerText = `${computerDamage} Max Damage`
-
-        playerDeck = playerDeck.filter((i) => i.id !== playerSelect[0].id)
-        computerDeck = computerDeck.filter((i) => i.id !== computerSelect[0].id)
-          
-        resultOutcome = true
-        playScore.innerText= playerScore
-        compScore.innerText= computerScore
-       
-        updateScore()
         removeCard()
 
         if(playerDeck.length === 0){
